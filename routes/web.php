@@ -3,7 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainHomeController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Admin\AdminHomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,4 +38,9 @@ Route::get('/whyhere',[MainHomeController::class, 'whyhere'])->name('whyhere');
 
 
 // HOME
-Route::get('/home',[HomeController::class, 'index'])->name('index');
+Route::get('/home',[AdminHomeController::class, 'index'])->name('index');
+
+
+
+//Admin
+Route::get('/admin',[AdminHomeController::class,'index'])->name('index');
