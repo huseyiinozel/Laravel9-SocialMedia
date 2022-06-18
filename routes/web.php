@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainHomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,3 +35,7 @@ Route::get('/',[MainHomeController::class, 'index'])->name('index');
 Route::get('/aboutus',[MainHomeController::class, 'aboutus'])->name('aboutus');
 Route::get('/contact',[MainHomeController::class, 'contact'])->name('contact');
 Route::get('/whyhere',[MainHomeController::class, 'whyhere'])->name('whyhere');
+
+
+// HOME
+Route::get('/home',[HomeController::class, 'index'])->name('index');
