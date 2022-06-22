@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainHomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminHomeController;
+use App\Http\Controllers\Admin\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,9 +39,17 @@ Route::get('/whyhere',[MainHomeController::class, 'whyhere'])->name('whyhere');
 
 
 // HOME
-Route::get('/home',[AdminHomeController::class, 'index'])->name('index');
+Route::get('/home',[HomeController::class, 'index'])->name('index');
 
 
 
 //Admin
 Route::get('/admin',[AdminHomeController::class,'index'])->name('index');
+
+Route::get('/admin/category',[CategoryController::class,'index'])->name('categories');
+Route::get('/admin/category/create',[CategoryController::class,'create'])->name('create');
+Route::post('/admin/category/store',[CategoryController::class,'store'])->name('store');
+Route::get('/admin/category/edit/{id}',[CategoryController::class,'edit'])->name('edit');
+Route::post('/admin/category/update/{id}',[CategoryController::class,'update'])->name('update');
+Route::get('/admin/category/show/{id}',[CategoryController::class,'show'])->name('show');
+Route::get('/admin/category/destroy/{id}',[CategoryController::class,'destroy'])->name('destroy');

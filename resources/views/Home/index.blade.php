@@ -1,7 +1,5 @@
 @extends('layouts.frontbase')
-@include('home.header')
-@include('home.slider')
-@include('home.sidebar')
+@section('title','Blackest')
 @section('content')
 <section id="features" class="bg-white">
     <div class="container">
@@ -474,5 +472,5 @@
 </section>
 </div>
 
-@include('home.footer')
+
 @endsection

@@ -2,13 +2,10 @@
 <html lang="en">
 
 <head>
-    <!--
-     - Roxy: Bootstrap template by GettTemplates.com
-     - https://gettemplates.co/roxy
-    -->
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Roxy by GetTemplates.co</title>
+    <title>@yield('title')</title>
     <meta name="description" content="Roxy">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -32,10 +29,13 @@
 
 </head>
 <body data-spy="scroll" data-target="#navbar" class="static-layout">
-
+@include('home.header')
+@include('home.slider')
+@include('home.sidebar')
 
 @section('content')
 @show
+
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
 <script src="{{asset('assets')}}/home/vendor/bootstrap/popper.min.js"></script>
 <script src="{{asset('assets')}}/home/vendor/bootstrap/bootstrap.min.js"></script>
