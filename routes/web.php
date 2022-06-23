@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MainHomeController;
 use Illuminate\Support\Facades\Route;
@@ -44,7 +45,7 @@ Route::get('/home',[HomeController::class, 'index'])->name('index');
 
 
 //Admin
-Route::get('/admin',[AdminHomeController::class,'index'])->name('index');
+Route::get('/admin',[AdminHomeController::class,'index'])->name('adminindex');
 
 Route::get('/admin/category',[CategoryController::class,'index'])->name('categories');
 Route::get('/admin/category/create',[CategoryController::class,'create'])->name('create');
@@ -53,3 +54,13 @@ Route::get('/admin/category/edit/{id}',[CategoryController::class,'edit'])->name
 Route::post('/admin/category/update/{id}',[CategoryController::class,'update'])->name('update');
 Route::get('/admin/category/show/{id}',[CategoryController::class,'show'])->name('show');
 Route::get('/admin/category/destroy/{id}',[CategoryController::class,'destroy'])->name('destroy');
+
+
+
+Route::get('/admin/post',[PostController::class,'index'])->name('post');
+Route::get('/admin/post/create',[PostController::class,'create'])->name('post_create');
+Route::post('/admin/post/store',[PostController::class,'store'])->name('post_store');
+Route::get('/admin/post/edit/{id}',[PostController::class,'edit'])->name('post_edit');
+Route::post('/admin/post/update/{id}',[PostController::class,'update'])->name('post_update');
+Route::get('/admin/post/show/{id}',[PostController::class,'show'])->name('post_show');
+Route::get('/admin/post/destroy/{id}',[PostController::class,'destroy'])->name('post_destroy');
