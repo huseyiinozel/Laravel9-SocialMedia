@@ -29,7 +29,7 @@
                     <tr>
                         @foreach( $data as $rs )
                         <th scope="row">{{$rs->id}}</th>
-                        <td>{{$rs->category}}</td>
+                        <td> {{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs, $rs->title) }}</td>
                         <td>{{$rs->title}}</td>
                          <td>   @if($rs->image)
                                  <img class="rounded-circle" src="{{Storage::url($rs->image)}}" alt="" style="width: 40px; height: 40px;">

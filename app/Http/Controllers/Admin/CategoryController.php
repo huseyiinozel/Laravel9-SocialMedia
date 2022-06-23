@@ -9,6 +9,23 @@ use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
+    protected $appends = [
+        'getParentsTree'
+    ];
+    public static function getParentsTree($category, $title)
+    {
+        if ($category->parent_id == 0)
+        {
+            return $title;
+        }
+        $parent = Category::find($category->parent_id);
+        $title= $parent->title . ' > ' . $title;
+        return CategoryController::getParentsTree($parent, $title);
+
+
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -52,7 +69,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $data=new Category();
-        $data->parent_id = 0;
+        $data->parent_id = $request->parent_id;
         $data->title = $request->title;
         $data->status = $request->status;
 
@@ -107,7 +124,7 @@ class CategoryController extends Controller
     public function update(Request $request,$id)
     {
         $data =Category::find($id);
-        $data->parent_id = 0;
+        $data->parent_id = $request->parent_id;
         $data->title = $request->title;
         $data->status = $request->status;
         if ($request->file('image')){

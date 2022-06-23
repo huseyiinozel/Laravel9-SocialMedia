@@ -33,7 +33,7 @@
                     <tr>
 
                             <th scope="row">{{$data->id}}</th>
-                            <td>{{$data->category}}</td>
+                        <td> {{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($data, $data->title) }}</td>
                             <td>{{$data->title}}</td>
                             <td>   @if($data->image)
                                     <img src="{{Storage::url($data->image)}}" style="height: 40px">

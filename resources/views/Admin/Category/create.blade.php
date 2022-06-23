@@ -11,10 +11,11 @@
                 <div class="row mb-3">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Kategori</label>
                     <div class="col-sm-10">
-                        <select name="category" class="form-select form-select-sm mb-3" aria-label=".form-select-sm example">
-                            <option selected="">Kategori Seç</option>
-                            <option value="1">Ana Kategori</option>
-                            <option value="2">Two</option>
+                        <select name="parent_id" class="form-select form-select-sm mb-3" aria-label=".form-select-sm example">
+                            <option value="0" selected="">Ana Kategori</option>
+                            @foreach($data as $rs)
+                                <option value="{{$rs->id}}">{{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs,$rs->title)}}</option>
+                            @endforeach
 
                         </select>
                     </div>
