@@ -50,5 +50,6 @@
 <!-- Main JS -->
 <script src="{{asset('assets')}}/home/js/app.min.js "></script>
 <script src="//localhost:35729/livereload.js"></script>
+@include('home.footer')
 </body>
 </html>

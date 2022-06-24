@@ -1,7 +1,6 @@
-
 <nav id="header-navbar" class="navbar navbar-expand-lg py-4">
     <div class="container">
-        <a class="navbar-brand d-flex align-items-center text-white" href="/">
+        <a class="navbar-brand d-flex align-items-center text-white" href="/home">
             <h3 class="font-weight-bolder mb-0">ROXY</h3>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-nav-header" aria-controls="navbar-nav-header" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,5 +34,6 @@
         </div>
     </div>
 </nav>
+
 
 
