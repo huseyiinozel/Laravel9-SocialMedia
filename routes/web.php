@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HomePostController;
 use App\Http\Controllers\MainHomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminHomeController;
@@ -41,7 +42,7 @@ Route::get('/whyhere',[MainHomeController::class, 'whyhere'])->name('whyhere');
 
 // HOME
 Route::get('/home',[HomeController::class, 'index'])->name('index');
-
+Route::get('/home/post/{id}',[HomePostController::class, 'index'])->name('post_index');
 
 
 //Admin

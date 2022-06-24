@@ -16,18 +16,20 @@
                         @foreach($sliderdata as $rs)
                         <div class="testi-item text-center">
                             <i class="testi-icon fa fa-3x fa-quote-left"></i>
-                            <h4 class="testi-text"><b>{{$rs->category->title}}</b> <br>{{$rs->title}} </h4>
+                            <h4 class="testi-text"><a href="{{route('post_index',['id'=>$rs->id])}}"> {{$rs->category->title}} </a> <br>{{$rs->title}} </h4>
                             <div class="testi-meta-inner d-flex justify-content-center align-items-center">
                                 <div class="testi-img mr-2">
-                                    <img src="{{asset('assets')}}/home/img/testi-1.png" alt="">
+                                    <img src="{{asset('assets')}}/home/img/testi-1.png" alt="" href="{{route('post_index',['id'=>$rs->id])}}">
                                 </div>
                                 <div class="testi-details">
                                     <p class="testi-author mb-0 font-weight-bolder">Kullanıcı Adı</p>
                                     <p class="testi-desc mb-0">Üyelik adı</p>
+
                                 </div>
                             </div>
 
                         </div>
+
 
                         @endforeach
                     </div>
@@ -50,7 +52,7 @@
                             <div class="col-md-4 offset-md-2 col-sm-6" data-aos="fade-right">
                                 <h4 class="mb-4">{{$rs->title}}</h4>
                                 <p>{{$rs->detail}}</p>
-                                <button type="button" class="btn btn-outline-primary">Devamını Oku</button>
+                                <a href="{{route('post_index',['id'=>$rs->id])}}" type="button"  class="btn btn-outline-primary">Devamını Oku</a>
                             </div><!--/ .col-md-4.col-md-offset-2.col-sm-6 -->
 
                             <div class="col-md-4 offset-md-right-2 col-sm-6" data-aos="flip-right">
