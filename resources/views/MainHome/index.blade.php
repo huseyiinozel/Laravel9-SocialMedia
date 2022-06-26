@@ -15,7 +15,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{asset('assets')}}/apple-icon-180x180.png">
     <link href="{{asset('assets')}}/favicon.ico" rel="icon">
 
-    <title>Hoşgeldiniz</title>
+    <title>{{$settings->title}}</title>
 
     <link href="{{asset('assets')}}/main.3f6952e4.css" rel="stylesheet"></head>
 

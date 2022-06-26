@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomePostController;
 use App\Http\Controllers\MainHomeController;
@@ -66,3 +67,8 @@ Route::get('/admin/post/edit/{id}',[PostController::class,'edit'])->name('post_e
 Route::post('/admin/post/update/{id}',[PostController::class,'update'])->name('post_update');
 Route::get('/admin/post/show/{id}',[PostController::class,'show'])->name('post_show');
 Route::get('/admin/post/destroy/{id}',[PostController::class,'destroy'])->name('post_destroy');
+
+
+Route::get('/admin/settings',[SettingController::class,'index'])->name('settings');
+Route::post('/admin/settings/store',[SettingController::class,'store'])->name('settings_store');
+Route::post('/admin/settings/update',[SettingController::class,'update'])->name('settings_update');

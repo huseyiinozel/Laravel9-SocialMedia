@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class MainHomeController extends Controller
@@ -9,8 +10,9 @@ class MainHomeController extends Controller
     //
 
 public function index(){
+    $settings=Setting::first();
 
-    return view('MainHome.index');
+    return view('MainHome.index',['settings'=>$settings]);
 
 }
 public function aboutus(){
