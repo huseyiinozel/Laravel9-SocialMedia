@@ -43,6 +43,7 @@ Route::get('/whyhere',[MainHomeController::class, 'whyhere'])->name('whyhere');
 // HOME
 Route::get('/home',[HomeController::class, 'index'])->name('index');
 Route::get('/home/post/{id}',[HomePostController::class, 'index'])->name('post_index');
+Route::get('home/categorypost/{id}',[HomeController::class,'categorypost'])->name('categorypost');
 
 
 //Admin

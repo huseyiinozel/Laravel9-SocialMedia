@@ -6,18 +6,23 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-nav-header" aria-controls="navbar-nav-header" aria-expanded="false" aria-label="Toggle navigation">
             <span class="lnr lnr-menu"></span>
         </button>
+        @php
+            $mainCategories = \App\Http\Controllers\HomeController::maincategorylist()
+        @endphp
         <div class="collapse navbar-collapse" id="navbar-nav-header">
             <ul class="navbar-nav ml-auto">
+
                 <li class="nav-item">
                     <a class="nav-link" href="/">Home</a>
                 </li>
+                @foreach($mainCategories as $rs)
                 <li class="nav-item">
-                    <a class="nav-link" href="about.html">About</a>
+                    <a class="nav-link" href="{{route('categorypost',['id'=>$rs->id])}}">{{$rs->title}}</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="blog.html">Blog</a>
-                </li>
-                <li class="nav-item">
+                @endforeach
+
+
+                    <li class="nav-item">
                     <a class="nav-link" href="contact.html">Contact</a>
                 </li>
                 <li class="nav-item">

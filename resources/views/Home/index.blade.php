@@ -16,7 +16,7 @@
                         @foreach($sliderdata as $rs)
                         <div class="testi-item text-center">
                             <i class="testi-icon fa fa-3x fa-quote-left"></i>
-                            <h4 class="testi-text"><a href="{{route('post_index',['id'=>$rs->id])}}"> {{$rs->category->title}} </a> <br>{{$rs->title}} </h4>
+                            <h4 class="testi-text"><a href="{{route('post_index',['id'=>$rs->id])}}"></a> <br>{{$rs->title}} </h4>
                             <div class="testi-meta-inner d-flex justify-content-center align-items-center">
                                 <div class="testi-img mr-2">
                                     <img src="{{asset('assets')}}/home/img/testi-1.png" alt="" href="{{route('post_index',['id'=>$rs->id])}}">
@@ -56,7 +56,12 @@
                             </div><!--/ .col-md-4.col-md-offset-2.col-sm-6 -->
 
                             <div class="col-md-4 offset-md-right-2 col-sm-6" data-aos="flip-right">
+                                @if($rs->image)
                                 <img class="my-5" src="{{Storage::url($rs->image)}}" alt="">
+
+                                @else
+                                    <img class="my-5" src="{{asset('assets')}}/home/img/new.png" alt="">
+                                @endif
                             </div><!--/ .col-md-4.col-md-offset-right-2.col-sm-6 -->
 
                         </div><!--/ .featurettes-item -->

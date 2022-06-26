@@ -3,9 +3,12 @@
     <div class="jumbotron jumbotron-single d-flex align-items-center" style="background-image: url('{{asset('assets')}}/home/img/blog-1.jpg')">
         <div class="container text-center">
 
-            @if($post->image )
-            <img src="{{Storage::url($post->image)}}">
-                @endif
+            @if($post->image)
+                <img class="my-5" src="{{Storage::url($post->image)}}" alt="">
+
+            @else
+                <img class="my-5" src="{{asset('assets')}}/home/img/new.png" alt="">
+            @endif
 
         </div>
     	<!-- Contact Form Section -->
