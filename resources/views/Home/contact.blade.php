@@ -3,6 +3,7 @@
     <div class="jumbotron jumbotron-single d-flex align-items-center" style="background-image: url('{{asset('assets')}}/home/img/bg.jpg')">
     <div class="container text-center">
         <h1 class="display-2 mb-4">İletişim</h1>
+
     </div>
     </div>		<!-- Contact Form Section -->
     <section id="contact-form" class="bg-white">
@@ -10,6 +11,7 @@
             <div class="section-content">
                 <!-- Section Title -->
                 <div class="title-wrap" data-aos="fade-up">
+                    @include('home.alert')
                     <h2 class="section-title">Bize Ulaşın</h2>
                     <p class="section-sub-title">Bize istediğiniz zaman gönül rahatlığıyla ulaşabilirsiniz. <br> </p>
                 </div>
@@ -21,7 +23,7 @@
                             @csrf
                             <div class="row">
                                 <div class="col-md-12 form-group">
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="İsim(kullanıcı adı)">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="İsim(kullanıcı adı) 'ZORUNLU' ">
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <input type="text" class="form-control" id="email" name="email" placeholder="Email">
@@ -46,28 +48,28 @@
             </div>
             <div class="section-content pt-0">
                 <div class="title-wrap" data-aos="fade-up">
-                    <h2 class="section-title">Where To Find Us?</h2>
+                    <h2 class="section-title">Bize Ulaşın</h2>
                 </div>
                 <div class="row text-center mt-4">
                     <div class="col-md-3" data-aos="fade-up">
                         <span class="lnr lnr-location fs-40 py-4 d-block"></span>
-                        <h5>LOCATION</h5>
-                        <p>Yogyakarta</p>
+                        <h5>Konum</h5>
+                        <p>{{$settings->address}}</p>
                     </div>
                     <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
                         <span class="lnr lnr-clock fs-40 py-4 d-block"></span>
-                        <h5>WORKING TIME</h5>
-                        <p>Monday - Saturday</p>
+                        <h5>Çalışma Zamanlarımız</h5>
+                        <p>Pazartesi-Pazar</p>
                     </div>
                     <div class="col-md-3" data-aos="fade-up" data-aos-delay="400">
                         <span class="lnr lnr-phone fs-40 py-4 d-block"></span>
-                        <h5>CALL US</h5>
-                        <p>123-45678</p>
+                        <h5>Telefon Numaramız</h5>
+                        <p>{{$settings->phone}}</p>
                     </div>
                     <div class="col-md-3" data-aos="fade-up" data-aos-delay="600">
                         <span class="lnr lnr-phone fs-40 py-4 d-block"></span>
-                        <h5>EMAIL</h5>
-                        <p>company@gmail.com</p>
+                        <h5>Mail Adresimi</h5>
+                        <p>{{$settings->email}}</p>
                     </div>
 
                 </div>

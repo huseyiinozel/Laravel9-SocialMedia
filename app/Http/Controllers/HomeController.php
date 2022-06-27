@@ -49,18 +49,25 @@ class HomeController extends Controller
     public function storecontact(Request $request){
         $data=new Contact();
         $data->name=$request->name;
+        if ($data->name==null)
+            return redirect()->route('contact')->with('error','error');
         $data->email=$request->email;
         $data->phone=$request->phone;
         $data->subject=$request->subject;
         $data->message=$request->message;
         $data->ip=request()->ip();
         $data->save();
-        return redirect('home/contact');
+
+
+        return redirect()->route('contact')->with('success','error');
 
 
     }
     public function contact(){
-        return view('home.contact');
+        $settings=Setting::first();
+        return view('home.contact',[
+            'settings'=>$settings
+        ]);
 
     }
 

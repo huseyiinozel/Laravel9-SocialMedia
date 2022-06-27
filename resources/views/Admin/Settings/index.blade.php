@@ -55,7 +55,7 @@
                 <label for="floatingInput">Şirket Adı</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="text" name="adress" value="{{$data->adress}}" class="form-control" id="floatingPassword"
+                <input type="text" name="address" value="{{$data->adress}}" class="form-control" id="floatingPassword"
                        placeholder="Adres">
                 <label for="floatingPassword">Adres</label>
             </div>
