@@ -46,7 +46,8 @@ Route::get('/home',[HomeController::class, 'index'])->name('index');
 Route::get('/home/post/{id}',[HomePostController::class, 'index'])->name('post_index');
 Route::get('home/categorypost/{id}',[HomeController::class,'categorypost'])->name('categorypost');
 Route::get('/home/about',[HomeController::class, 'about'])->name('about');
-
+Route::get('/home/contact',[HomeController::class, 'contact'])->name('contact');
+Route::post('/home/storecontact',[HomeController::class, 'storecontact'])->name('storecontact');
 //Admin
 Route::get('/admin',[AdminHomeController::class,'index'])->name('adminindex');
 

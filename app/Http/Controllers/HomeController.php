@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Contact;
 use App\Models\Post;
 use App\Models\Setting;
 use Illuminate\Http\Request;
@@ -43,6 +44,23 @@ class HomeController extends Controller
            'settings'=>$settings,
            '$category'=>$category,
        ]);
+
+    }
+    public function storecontact(Request $request){
+        $data=new Contact();
+        $data->name=$request->name;
+        $data->email=$request->email;
+        $data->phone=$request->phone;
+        $data->subject=$request->subject;
+        $data->message=$request->message;
+        $data->ip=request()->ip();
+        $data->save();
+        return redirect('home/contact');
+
+
+    }
+    public function contact(){
+        return view('home.contact');
 
     }
 
