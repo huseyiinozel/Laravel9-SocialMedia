@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -34,5 +35,17 @@ class HomeController extends Controller
 
         ]);
     }
+    public function about(){
+        $settings=Setting::first();
+        $category=Category::all();
+
+       return view('home.aboutus',[
+           'settings'=>$settings,
+           '$category'=>$category,
+       ]);
+
+    }
+
+
 
 }

@@ -13,7 +13,7 @@
             <ul class="navbar-nav ml-auto">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link" href="/home">Home</a>
                 </li>
                 @foreach($mainCategories as $rs)
                 <li class="nav-item">
@@ -23,7 +23,10 @@
 
 
                     <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
+                    <a class="nav-link" href="contact.html">İletişim</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('about')}}">Site Hakkında</a>
                 </li>
                 <li class="nav-item">
                     <a id="side-search-open" class="nav-link" href="#">
