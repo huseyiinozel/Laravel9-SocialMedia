@@ -19,10 +19,10 @@ return new class extends Migration
             $table->string('email',50)->nullable();
             $table->string('phone',20)->nullable();
             $table->string('subject',100)->nullable();
-            $table->string('message',)->nullable();
-            $table->string('note',100)->nullable();
+            $table->Text('message',)->nullable();
+            $table->Text('note',100)->nullable();
             $table->string('ip',50)->nullable();
-            $table->string('status',5)->nullable()->default('New');
+            $table->string('status',5)->nullable()->default('Yeni');
 
             $table->timestamps();
 

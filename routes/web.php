@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminMessageController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\HomeController;
@@ -48,6 +49,7 @@ Route::get('home/categorypost/{id}',[HomeController::class,'categorypost'])->nam
 Route::get('/home/about',[HomeController::class, 'about'])->name('about');
 Route::get('/home/contact',[HomeController::class, 'contact'])->name('contact');
 Route::post('/home/storecontact',[HomeController::class, 'storecontact'])->name('storecontact');
+
 //Admin
 Route::get('/admin',[AdminHomeController::class,'index'])->name('adminindex');
 
@@ -73,3 +75,9 @@ Route::get('/admin/post/destroy/{id}',[PostController::class,'destroy'])->name('
 Route::get('/admin/settings',[SettingController::class,'index'])->name('settings');
 Route::post('/admin/settings/store',[SettingController::class,'store'])->name('settings_store');
 Route::post('/admin/settings/update',[SettingController::class,'update'])->name('settings_update');
+
+
+Route::get('/admin/message',[AdminMessageController::class,'index'])->name('message_index');
+Route::get('/admin/message/show/{id}',[AdminMessageController::class,'show'])->name('message_show');
+Route::get('/admin/message/destroy/{id}',[AdminMessageController::class,'destroy'])->name('message_destroy');
+Route::post('/admin/message/update/{id}',[AdminMessageController::class,'update'])->name('message_update');

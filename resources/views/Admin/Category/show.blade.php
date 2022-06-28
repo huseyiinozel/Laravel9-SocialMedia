@@ -20,9 +20,9 @@
 
                     <tr>
                         <th scope="col">Numara</th>
-                        <th scope="col">Üst Kategori</th>
-                        <th scope="col">İsim</th>
-                        <th scope="col">Resim</th>
+                        <th scope="col">Kullanıcı Adı</th>
+                        <th scope="col">Başlık</th>
+                        <th scope="col">Konu</th>
                         <th scope="col">Durum</th>
 
                     </tr>
@@ -32,14 +32,12 @@
 
                     <tr>
 
-                            <th scope="row">{{$data->id}}</th>
-                        <td> {{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($data, $data->title) }}</td>
-                            <td>{{$data->title}}</td>
-                            <td>   @if($data->image)
-                                    <img src="{{Storage::url($data->image)}}" style="height: 40px">
-                                @endif
-                            </td>
-                            <td>{{$data->status}}</td>
+                        <th scope="row">id</th>
+                        <td> ad</td>
+                        <td>başlık</td>
+                        <td>   k0onu
+                        </td>
+                        <td>durum</td>
 
 
 

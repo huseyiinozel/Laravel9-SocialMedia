@@ -41,16 +41,15 @@
             <span class="sr-only">Loading...</span>
         </div>
     </div>
-@include('admin.header')
-@include('admin.sidebar')
+
 @section('content')
 @show
 
 
-@include('admin.footer')
 
 
 
+@include('Admin.footer')
 </body>
 </html>
 
