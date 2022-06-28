@@ -1,26 +1,28 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Comment;
-use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class HomePostController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-        $reviews = Comment::where('post_id',$id)->where('status','Yayınlandı')->get();
-        $post=Post::find($id);
-        return view('home.post',[
-            'post'=>$post,
-            'reviews'=>$reviews
+        $data = Comment::all();
+        return view('Admin.Comment.index',[
+            'data'=> $data
+
         ]);
+
     }
 
     /**
@@ -52,7 +54,10 @@ class HomePostController extends Controller
      */
     public function show($id)
     {
-        //
+        $data=Comment::find($id);
+        return view('Admin.Comment.show',[
+            'data'=>$data
+        ]);
     }
 
     /**
@@ -75,7 +80,12 @@ class HomePostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data =Comment::find($id);
+
+        $data->status=$request->status;
+
+        $data->save();
+        return redirect(route('comment_show',['id'=>$id]));
     }
 
     /**
@@ -86,6 +96,9 @@ class HomePostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data =Comment::find($id);
+
+        $data->delete();
+        return redirect('admin/comment');
     }
 }

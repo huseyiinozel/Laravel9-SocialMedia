@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Contact;
 use App\Models\Post;
 use App\Models\Setting;
@@ -17,7 +18,7 @@ class HomeController extends Controller
     }
     public function index(){
         $sliderdata=Post::where('status','Aktif')->limit(4)->get();
-        $postlist1=Post::where('status','Aktif')->limit(4)->get();
+        $postlist1=Post::where('status','Aktif')->limit(12)->get();
         return view('Home.index',[
             'sliderdata'=>$sliderdata,
             'postlist1'=>$postlist1,
@@ -70,6 +71,23 @@ class HomeController extends Controller
         ]);
 
     }
+    public function storecomment(Request $request){
+        $data=new Comment();
+
+        $data->user_id=1; //$request->user_id;
+        $data->post_id=$request->post_id;
+        $data->review=$request->review;
+        $data->ip=request()->ip();
+        $data->save();
+
+
+        return redirect()->route('post_index',['id'=>$data->post_id])->with('success','error');
+
+
+    }
+
+
+
 
 
 

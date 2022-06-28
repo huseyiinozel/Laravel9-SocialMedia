@@ -49,7 +49,7 @@ class PostController extends Controller
         $data=new Post();
         $data->category_id=$request->category_id;
         $data->title=$request->title;
-        $data->user_id=0; //$request->user_id;
+        $data->user_id=1; //$request->user_id;
         $data->detail=$request->detail;
         $data->type=$request->category_id;
         $data->status=$request->status;
@@ -107,7 +107,7 @@ class PostController extends Controller
         $data =Post::find($id);
         $data->category_id= $request->category_id;
         $data->title=$request->title;
-        $data->user_id=0; //$request->user_id;
+        $data->user_id=1; //$request->user_id;
         $data->detail=$request->detail;
         $data->type=$request->category_id;
         $data->status=$request->status;

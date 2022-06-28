@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminMessageController;
+use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\HomeController;
@@ -42,6 +43,7 @@ Route::get('/contact',[MainHomeController::class, 'contact'])->name('contact');
 Route::get('/whyhere',[MainHomeController::class, 'whyhere'])->name('whyhere');
 
 
+
 // HOME
 Route::get('/home',[HomeController::class, 'index'])->name('index');
 Route::get('/home/post/{id}',[HomePostController::class, 'index'])->name('post_index');
@@ -49,6 +51,12 @@ Route::get('home/categorypost/{id}',[HomeController::class,'categorypost'])->nam
 Route::get('/home/about',[HomeController::class, 'about'])->name('about');
 Route::get('/home/contact',[HomeController::class, 'contact'])->name('contact');
 Route::post('/home/storecontact',[HomeController::class, 'storecontact'])->name('storecontact');
+
+
+Route::post('/home/storecomment',[HomeController::class, 'storecomment'])->name('storecomment');
+
+
+
 
 //Admin
 Route::get('/admin',[AdminHomeController::class,'index'])->name('adminindex');
@@ -81,3 +89,11 @@ Route::get('/admin/message',[AdminMessageController::class,'index'])->name('mess
 Route::get('/admin/message/show/{id}',[AdminMessageController::class,'show'])->name('message_show');
 Route::get('/admin/message/destroy/{id}',[AdminMessageController::class,'destroy'])->name('message_destroy');
 Route::post('/admin/message/update/{id}',[AdminMessageController::class,'update'])->name('message_update');
+
+
+Route::get('/admin/comment',[CommentController::class,'index'])->name('comment');
+Route::get('/admin/comment/show/{id}',[CommentController::class,'show'])->name('comment_show');
+Route::get('/admin/comment/destroy/{id}',[CommentController::class,'destroy'])->name('comment_destroy');
+Route::post('/admin/comment/update/{id}',[CommentController::class,'update'])->name('comment_update');
+
+
