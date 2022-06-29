@@ -18,7 +18,10 @@ class HomeController extends Controller
     }
     public function index(){
         $sliderdata=Post::where('status','Aktif')->limit(4)->get();
-        $postlist1=Post::where('status','Aktif')->limit(12)->get();
+        $postlist1 = DB::table('posts')
+            ->orderBy('id', 'desc')
+            ->get();
+
         return view('Home.index',[
             'sliderdata'=>$sliderdata,
             'postlist1'=>$postlist1,
