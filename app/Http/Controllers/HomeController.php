@@ -7,8 +7,12 @@ use App\Models\Comment;
 use App\Models\Contact;
 use App\Models\Post;
 use App\Models\Setting;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use phpDocumentor\Reflection\Types\True_;
+use function MongoDB\Driver\Monitoring\removeSubscriber;
 
 class HomeController extends Controller
 {
@@ -88,6 +92,82 @@ class HomeController extends Controller
 
 
     }
+    public function loginusercheck(Request $request)
+    {
+        $ad = $request->username;
+        $sifre=$request->password;
+        $name =User::where('username',$ad)->first();
+        $pass =User::where('password',$sifre)->first();
+        if ($name == null or $pass == null){
+            return redirect('/loginuser');
+        }
+        if ($ad == null or $sifre == null){
+            return redirect('/loginuser');
+        }
+
+
+        if ($name->username == $ad and $pass->password == $sifre){
+
+            Auth::login($name);
+            return redirect('/')->with('success','başarılı');
+        }
+
+
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/')->with('logout','logout');
+
+
+
+    }
+    public function registerstore(Request $request){
+        $data=new User();
+
+        $data->username=$request->username;
+        $name =User::where('username',$request->username)->first();
+        $data->password=$request->password;
+        $data->email=$request->email;
+        $email =User::where('email',$request->email)->first();
+        $data->age=$request->age;
+        $data->gender=$request->gender;
+        $data->mac=exec('getmac');
+        $data->ip=request()->ip();
+
+        if ($name == True){
+            return redirect('/registeruser')->with('errorregister','errorregister');
+
+        }
+        if ($email == True){
+            return redirect('/registeruser')->with('erroremail','erroremail');
+
+        }
+        if ($data->username == null or $data->password == null or $data->email == null or $data->age == null or
+            $data->gender == null ){
+            return redirect('/registeruser')->with('errornull','errornull');
+        }
+
+
+        $data->save();
+        Auth::login($data);
+
+
+
+        return redirect('/')->with('register','register');
+
+
+    }
+
+
+
+
+
+
+
 
 
 

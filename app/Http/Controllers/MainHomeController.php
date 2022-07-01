@@ -32,4 +32,16 @@ public function whyhere(){
         return view('MainHome.whyhere');
 
     }
+public function login(){
+
+        return view('MainHome.login');
+
+    }
+
+public function register(){
+
+        return view('MainHome.register');
+
+    }
+
 }

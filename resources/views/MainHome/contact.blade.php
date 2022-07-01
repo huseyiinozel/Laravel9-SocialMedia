@@ -41,8 +41,8 @@
                     <li><a href="{{route('aboutus')}}" title="">02 : Biz Kimiz</a></li>
                     <li><a href="{{route('contact')}}" title="">03 : İletişim</a></li>
                     <li><a href="{{route('whyhere')}}" title="">04 : Neden Buradasın</a></li>
-                    <li><a href="#"  title="">05 : Giriş Yap</a></li>
-                    <li><a href="#"  title="">06 : Üye Ol</a></li>
+                    <li><a href="{{route('login')}}"  title="">05 : Giriş Yap</a></li>
+                    <li><a href="{{route('register')}}"   title="">06 : Üye Ol</a></li>
                 </ul>
 
 

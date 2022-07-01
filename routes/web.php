@@ -22,6 +22,8 @@ use App\Http\Controllers\Admin\CategoryController;
 */
 // deneme
 
+/*
+
 Route::get('/welcome', function () {
     return view('welcome');
 });
@@ -35,27 +37,33 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+*/
+
 
 // Main İndex
+/*
 Route::get('/',[MainHomeController::class, 'index'])->name('index');
 Route::get('/aboutus',[MainHomeController::class, 'aboutus'])->name('aboutus');
 Route::get('/contact',[MainHomeController::class, 'contact'])->name('contact');
 Route::get('/whyhere',[MainHomeController::class, 'whyhere'])->name('whyhere');
-
-
-
+Route::get('/login',[MainHomeController::class, 'login'])->name('login');
+Route::get('/register',[MainHomeController::class, 'register'])->name('register');
+*/
 // HOME
-Route::get('/home',[HomeController::class, 'index'])->name('index');
-Route::get('/home/post/{id}',[HomePostController::class, 'index'])->name('post_index');
-Route::get('home/categorypost/{id}',[HomeController::class,'categorypost'])->name('categorypost');
-Route::get('/home/about',[HomeController::class, 'about'])->name('about');
-Route::get('/home/contact',[HomeController::class, 'contact'])->name('contact');
-Route::post('/home/storecontact',[HomeController::class, 'storecontact'])->name('storecontact');
-
-
-Route::post('/home/storecomment',[HomeController::class, 'storecomment'])->name('storecomment');
-
-
+Route::get('/',[HomeController::class, 'index'])->name('index');
+Route::view('/login','home.login')->name('index');
+Route::view('/register','home.register')->name('index');
+Route::get('/post/{id}',[HomePostController::class, 'index'])->name('post_index');
+Route::get('/categorypost/{id}',[HomeController::class,'categorypost'])->name('categorypost');
+Route::get('/about',[HomeController::class, 'about'])->name('about');
+Route::get('/contact',[HomeController::class, 'contact'])->name('home_contact');
+Route::post('/storecontact',[HomeController::class, 'storecontact'])->name('storecontact');
+Route::post('/storecomment',[HomeController::class, 'storecomment'])->name('storecomment');
+Route::view('/loginuser','home.login')->name('loginuser');
+Route::post('/loginusercheck',[HomeController::class,'loginusercheck'])->name('loginusercheck');
+Route::get('/logoutuser',[HomeController::class,'logout'])->name('logoutuser');
+Route::view('/registeruser','home.register')->name('registeruser');
+Route::post('/registerstore',[HomeController::class,'registerstore'])->name('registerstore');
 
 
 //Admin

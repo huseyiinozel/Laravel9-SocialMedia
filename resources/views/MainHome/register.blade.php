@@ -15,7 +15,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{{asset('assets')}}/apple-icon-180x180.png">
     <link href="{{asset('assets')}}/favicon.ico" rel="icon">
 
-    <title>Neden Buradasın</title>
+    <title>Login</title>
 
     <link href="{{asset('assets')}}/main.3f6952e4.css" rel="stylesheet"></head>
 
@@ -42,7 +42,7 @@
                     <li><a href="{{route('contact')}}" title="">03 : İletişim</a></li>
                     <li><a href="{{route('whyhere')}}" title="">04 : Neden Buradasın</a></li>
                     <li><a href="{{route('login')}}" title="">05 : Giriş Yap</a></li>
-                    <li><a href="{{route('register')}}"   title="">06 : Üye Ol</a></li>
+                    <li><a href="{{route('register')}}"  title="">06 : Üye Ol</a></li>
                 </ul>
 
 
@@ -57,15 +57,53 @@
             <div class="col-xs-12">
                 <div class="hero-full-wrapper">
                     <div class="text-content">
-                        <h1>Merhaba,<br>
+                        <h1><br>
                             <span id="typed-strings">
-                  <span>Bizde Bilmiyoruz</span>
-                  <span>Sen daha iyi bilirsin</span>
-                  <span>Ama burada olduğun için çok mutluyuz</span>
-                </span>
+                  <span>Üye Ol</span>
+                                </span>
                             <span id="typed"></span>
                         </h1>
+                            <form action="" class="reveal-content">
+                                <div class="row">
+                                    <div class="col-md-7">
+                                        <div class="form-group">
+                                            <input type="k_adi" class="form-control" id="email" placeholder="Kullanıcı Adı">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" id="password" placeholder="Şifre">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="e-mail" placeholder="E-mail">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="age" placeholder="Yaşınız">
+                                        </div>
+                                        <div class="form-group">
+                                        <select name="gender" class="form-control" >
+                                            <option selected="">Cinsiyet</option>
+                                            <option value="man">Erkek </option>
+                                            <option value="woman">Kadın</option>
+                                            <option value="none">Belirtmek İstemiyorum</option>
+
+                                        </select>
+                                        </div>
+
+
+                                        <button type="submit" class="btn btn-success">Üye Ol</button>
+                                    </div>
+
+                                </div>
+                            </form>
+                        <br>
+
+
+
+
+
+
+
                     </div>
+
                 </div>
             </div>
         </div>
@@ -83,3 +121,4 @@
 <script type="text/javascript" src="{{asset('assets')}}/main.70a66962.js"></script></body>
 
 </html>
+
