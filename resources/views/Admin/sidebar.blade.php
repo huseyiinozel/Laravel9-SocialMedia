@@ -1,6 +1,6 @@
 <div class="sidebar pe-4 pb-3">
     <nav class="navbar bg-secondary navbar-dark">
-        <a href="{{route('adminindex')}}" class="navbar-brand mx-4 mb-3">
+        <a href="{{route('admin.adminindex')}}" class="navbar-brand mx-4 mb-3">
             <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>AdminPanel</h3>
         </a>
         <div class="d-flex align-items-center ms-4 mb-4">
@@ -14,19 +14,20 @@
             </div>
         </div>
         <div class="navbar-nav w-100">
-            <a href="index.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+            <a href="/admin" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Mesajlar</a>
                 <div class="dropdown-menu bg-transparent border-0">
-                    <a href="{{route('message_index')}}" class="dropdown-item">İletişim</a>
+                    <a href="{{route('admin.message_index')}}" class="dropdown-item">İletişim</a>
                     <a href="typography.html" class="dropdown-item">Typography</a>
                     <a href="element.html" class="dropdown-item">Other Elements</a>
                 </div>
             </div>
-            <a href="{{route('categories')}}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Categories</a>
-            <a href="{{route('post')}}" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Gönderiler</a>
-            <a href="{{route('settings')}}" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Ayarlar</a>
-            <a href="{{route('comment')}}" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Yorumlar</a>
+            <a href="{{route('admin.categories')}}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Categories</a>
+            <a href="{{route('admin.post')}}" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Gönderiler</a>
+            <a href="{{route('admin.settings')}}" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Ayarlar</a>
+            <a href="{{route('admin.comment')}}" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Yorumlar</a>
+            <a href="{{route('admin.user')}}" class="nav-item nav-link"><i class="fa fa-users"></i> Kullanıcılar</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
                 <div class="dropdown-menu bg-transparent border-0">

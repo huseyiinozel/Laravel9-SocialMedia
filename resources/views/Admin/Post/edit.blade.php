@@ -3,7 +3,7 @@
     <div class="col-sm-12 col-xl-12">
         <div class="bg-secondary rounded h-100 p-4">
             <h6 class="mb-4">Kategori Ekle</h6>
-            <form action="{{route('post_update',['id'=>$data->id] )}}"method="post" enctype="multipart/form-data">
+            <form action="{{route('admin.post_update',['id'=>$data->id] )}}"method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row mb-3">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">Kategori</label>

@@ -5,7 +5,7 @@
         <div class="bg-secondary rounded h-100 p-4">
             <h6 class="mb-4">Katagoriler </h6>
 
-            <td><a href="{{route('create')}}" class="btn btn-info">Kategori Ekle</a> </td>
+            <td><a href="{{route('admin.create')}}" class="btn btn-info">Kategori Ekle</a> </td>
             <div class="table-responsive">
 
                 <table class="table">
@@ -38,9 +38,9 @@
                             @endif
                          </td>
                         <td>{{$rs->status}}</td>
-                            <td><a href="{{route('show',['id'=>$rs->id])}}" class="btn btn-primary btn-success ">Göster</a> </td>
-                            <td><a href="{{route('edit',['id'=>$rs->id])}}" class="btn btn-primary btn-info">Düzenle</a> </td>
-                            <td><a href="{{route('destroy',['id'=>$rs->id])}}" class="btn btn-primary btn-danger"
+                            <td><a href="{{route('admin.show',['id'=>$rs->id])}}" class="btn btn-primary btn-success ">Göster</a> </td>
+                            <td><a href="{{route('admin.edit',['id'=>$rs->id])}}" class="btn btn-primary btn-info">Düzenle</a> </td>
+                            <td><a href="{{route('admin.destroy',['id'=>$rs->id])}}" class="btn btn-primary btn-danger"
                                    onclick="return confirm ('Eminseniz Siliyorum')">Sil</a> </td>
 
 

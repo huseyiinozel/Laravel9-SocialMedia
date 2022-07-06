@@ -9,8 +9,8 @@
         <div class="bg-secondary rounded h-100 p-4">
 
             <h6 class="mb-4">{{$data->title}} </h6>
-            <td><a href="{{route('edit',['id'=>$data->id])}}" class="btn btn-primary btn-info">Düzenle</a> </td>
-            <td><a href="{{route('destroy',['id'=>$data->id])}}" class="btn btn-primary btn-danger"
+            <td><a href="{{route('admin.edit',['id'=>$data->id])}}" class="btn btn-primary btn-info">Düzenle</a> </td>
+            <td><a href="{{route('admin.destroy',['id'=>$data->id])}}" class="btn btn-primary btn-danger"
                    onclick="return confirm ('Eminseniz Siliyorum')">Sil</a> </td>
             <div class="table-responsive">
 

@@ -35,13 +35,13 @@
                             <td>{{$rs->ip}}</td>
                             <td>{{$rs->status}}</td>
                             <td>
-                                <a href="{{route('message_show',['id'=>$rs->id])}}" class="btn btn-primary btn-success"
+                                <a href="{{route('admin.message_show',['id'=>$rs->id])}}" class="btn btn-primary btn-success"
                                 onclick="return !window.open(this.href,'','top=50 left=100 width=1100,height=700')">Show</a>
 
 
                             </td>
 
-                            <td><a href="{{route('message_destroy',['id'=>$rs->id])}}" class="btn btn-primary btn-danger"
+                            <td><a href="{{route('admin.message_destroy',['id'=>$rs->id])}}" class="btn btn-primary btn-danger"
                                    onclick="return confirm ('Eminseniz Siliyorum')">Sil</a> </td>
 
 

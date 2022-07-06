@@ -80,7 +80,7 @@ class AdminMessageController extends Controller
         $data->status=$request->status;
         $data->note=$request->note;
         $data->save();
-        return redirect(route('message_show',['id'=>$id]));
+        return redirect(route('admin.message_show',['id'=>$id]));
     }
 
     /**

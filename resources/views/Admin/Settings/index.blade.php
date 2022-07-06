@@ -2,7 +2,7 @@
 @section('content')
 
     <input type="hidden" value="{{$data->id}}" name="id" >
-    <form role="form" action="{{route('settings_update')}}" method="post" enctype="multipart/form-data" >
+    <form role="form" action="{{route('admin.settings_update')}}" method="post" enctype="multipart/form-data" >
         @csrf
 
     <div class="col-sm-12 col-xl-12">

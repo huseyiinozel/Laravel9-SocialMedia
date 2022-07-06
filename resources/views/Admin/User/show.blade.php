@@ -16,32 +16,38 @@
             <table class="table table-striped table-bordered table-hover">
                     <thead>
                     <tr>
-                        <th style="width: 200px">Id</th>
+                        <th style="width: 200px">Numara</th>
                         <th>{{$data->id}}</th>
                     </tr>
 
                     <tr>
-                        <th >Kullanıcı Adı</th>
+                        <th >Ad</th>
                         <th>{{$data->name}}</th>
+                    </tr>
+
+                    <tr>
+                        <th >Kullanıcı Adı</th>
+                        <th>{{$data->username}}</th>
+                    </tr>
+                    <tr>
+                        <th >Şifre</th>
+                        <th>{{$data->password}}</th>
                     </tr>
 
 
                     <tr>
-                        <th >Telefon</th>
-                        <th>{{$data->phone}}</th>
+                        <th >Cinsiyet</th>
+                        <th>{{$data->gender}}</th>
                     </tr>
                     <tr>
                     <tr>
                         <th >Email</th>
                         <th>{{$data->email}}</th>
                     </tr>
+
                     <tr>
-                        <th >Başlık</th>
-                        <th>{{$data->subject}}</th>
-                    </tr>
-                    <tr>
-                        <th >Mesaj</th>
-                        <th>{{$data->message}}</th>
+                        <th >Doğum Tarihi</th>
+                        <th>{{$data->age}}</th>
                     </tr>
                     <tr>
                         <th >Ip</th>
@@ -50,11 +56,16 @@
 
 
                     <tr>
-                        <th >Gönderilme Tarihi</th>
+                        <th >Mac Adresi</th>
+                        <th>{{$data->mac}}</th>
+                    </tr>
+
+                    <tr>
+                        <th >Üyelik Tarihi</th>
                         <th>{{$data->created_at}}</th>
                     </tr>
 
-                    <form role="form" action="{{route('admin.message_update',['id'=>$data->id])}}" method="post" >
+                    <form role="form" action="{{route('admin.user_update',['id'=>$data->id])}}" method="post" >
                         @csrf
                     <tr>
                         <th >Durum</th>
@@ -63,7 +74,7 @@
                         <select name="status" class="form-select form-select-sm mb-3" aria-label=".form-select-sm example">
                             <option selected="">{{$data->status}}</option>
                             <option value="yeni">Yeni</option>
-                            <option value="okndu">Okundu</option>
+                            <option value="eski">Eski</option>
 
 
                         </select>
@@ -80,26 +91,18 @@
 
                     <tr>
 
-                        <th >Admin Cevabı :</th>
+                        <th >Admin İşlemi :</th>
                         <th>
 
 
-                                <textarea cols="100" id="note" name="note">{{$data->note}}</textarea>
-                                <select name="status" class="form-select form-select-sm mb-3" aria-label=".form-select-sm example">
-
-
-                                </select>
-
-
-
-                            <button type="submit" class="btn btn-primary">Cevabı Güncelle</button>
+                            <button type="submit" class="btn btn-primary"> Güncelle</button>
                         </th>
                     </tr>
 
                     </form>
 
 
-                    <td><a href="{{route('admin.message_destroy',['id'=>$data->id])}}" class="btn btn-primary btn-danger"
+                    <td><a href="{{route('admin.user_destroy',['id'=>$data->id])}}" class="btn btn-primary btn-danger"
                            onclick="return confirm ('Eminseniz Siliyorum')"  >Sil</a> </td>
 
 

@@ -5,7 +5,7 @@
         <div class="bg-secondary rounded h-100 p-4">
             <h6 class="mb-4">Gönderiler </h6>
 
-            <td><a href="{{route('post_create')}}" class="btn btn-info">Gönderi Ekle</a> </td>
+            <td><a href="{{route('admin.post_create')}}" class="btn btn-info">Gönderi Ekle</a> </td>
             <div class="table-responsive">
 
                 <table class="table">
@@ -36,9 +36,9 @@
                             @endif
                          </td>
                         <td>{{$rs->status}}</td>
-                            <td><a href="{{route('post_show',['id'=>$rs->id])}}" class="btn btn-primary btn-success ">Göster</a> </td>
-                            <td><a href="{{route('post_edit',['id'=>$rs->id])}}" class="btn btn-primary btn-info">Düzenle</a> </td>
-                            <td><a href="{{route('post_destroy',['id'=>$rs->id])}}" class="btn btn-primary btn-danger"
+                            <td><a href="{{route('admin.post_show',['id'=>$rs->id])}}" class="btn btn-primary btn-success ">Göster</a> </td>
+                            <td><a href="{{route('admin.post_edit',['id'=>$rs->id])}}" class="btn btn-primary btn-info">Düzenle</a> </td>
+                            <td><a href="{{route('admin.post_destroy',['id'=>$rs->id])}}" class="btn btn-primary btn-danger"
                                    onclick="return confirm ('Eminseniz Siliyorum')">Sil</a> </td>
 
 

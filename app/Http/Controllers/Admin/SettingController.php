@@ -127,7 +127,7 @@ class SettingController extends Controller
 
 
         $data->save();
-        return redirect()->route('settings');
+        return redirect()->route('admin.settings');
     }
 
     /**

@@ -7,7 +7,7 @@
                 @csrf
                 <div class="row">
                     <div class="col-md-7 form-group">
-                        <input type="text" class="form-control" id="username" name="username" placeholder="Username ">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Kullanıcı Adı ">
                     </div>
                     <div class="col-md-6 form-group">
                         <input type="password" class="form-control" id="password" name="password" placeholder="Şifre">

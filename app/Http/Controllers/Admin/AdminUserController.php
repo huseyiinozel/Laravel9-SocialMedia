@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
-use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class CommentController extends Controller
+class AdminUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,12 +15,11 @@ class CommentController extends Controller
      */
     public function index()
     {
-        $data = Comment::all();
-        return view('Admin.Comment.index',[
-            'data'=> $data
-
-        ]);
-
+        $data=User::all();
+        return view('Admin.user.index',[
+            'data'=>$data
+            ]
+        );
     }
 
     /**
@@ -54,8 +51,8 @@ class CommentController extends Controller
      */
     public function show($id)
     {
-        $data=Comment::find($id);
-        return view('Admin.Comment.show',[
+        $data=User::find($id);
+        return view('Admin.User.show',[
             'data'=>$data
         ]);
     }
@@ -80,12 +77,11 @@ class CommentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data =Comment::find($id);
-
+        $data =User::find($id);
         $data->status=$request->status;
 
         $data->save();
-        return redirect(route('admin.comment_show',['id'=>$id]));
+        return redirect(route('admin.user_show',['id'=>$id]));
     }
 
     /**
@@ -96,9 +92,9 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
-        $data =Comment::find($id);
+        $data =User::find($id);
 
         $data->delete();
-        return redirect('admin/comment');
+        return redirect('admin/user');
     }
 }

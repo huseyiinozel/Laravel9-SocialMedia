@@ -5,7 +5,7 @@
         <div class="bg-secondary rounded h-100 p-4">
             <h6 class="mb-4">Kategori Ekle</h6>
 
-            <form action="{{route('store')}}"method="post" enctype="multipart/form-data">
+            <form action="{{route('admin.store')}}"method="post" enctype="multipart/form-data">
             @csrf
 
                 <div class="row mb-3">

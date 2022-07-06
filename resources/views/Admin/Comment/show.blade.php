@@ -47,7 +47,7 @@
                         <th>{{$data->created_at}}</th>
                     </tr>
 
-                    <form role="form" action="{{route('comment_update',['id'=>$data->id])}}" method="post" >
+                    <form role="form" action="{{route('admin.comment_update',['id'=>$data->id])}}" method="post" >
                         @csrf
                         <tr>
                             <th >Durum</th>

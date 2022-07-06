@@ -5,7 +5,7 @@
         <div class="bg-secondary rounded h-100 p-4">
             <h6 class="mb-4">Gönderi Ekle</h6>
 
-            <form action="{{route('post_store')}}"method="post" enctype="multipart/form-data">
+            <form action="{{route('admin.post_store')}}"method="post" enctype="multipart/form-data">
             @csrf
 
                 <div class="row mb-3">
