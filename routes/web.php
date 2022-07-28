@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomePostController;
 use App\Http\Controllers\MainHomeController;
+use App\Http\Controllers\Serden;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -52,6 +53,7 @@ Route::get('/register',[MainHomeController::class, 'register'])->name('register'
 */
 // HOME
 Route::get('/',[HomeController::class, 'index'])->name('index');
+Route::get('/serden',[Serden::class, 'index'])->name('serden');
 Route::get('/post/{id}',[HomePostController::class, 'index'])->name('post_index');
 Route::get('/categorypost/{id}',[HomeController::class,'categorypost'])->name('categorypost');
 Route::get('/about',[HomeController::class, 'about'])->name('about');
@@ -123,7 +125,8 @@ Route::prefix('/admin')->name('admin.')->controller(AdminHomeController::class)-
         Route::get('/',[AdminUserController::class,'index'])->name('user');
         Route::get('/show/{id}',[AdminUserController::class,'show'])->name('user_show');
         Route::get('/destroy/{id}',[AdminUserController::class,'destroy'])->name('user_destroy');
-        Route::post('/update/{id}',[AdminUserController::class,'update'])->name('user_update');
+        Route::post('/update/{id}/{rid}',[AdminUserController::class,'update'])->name('user_update');
+
     });
 
 

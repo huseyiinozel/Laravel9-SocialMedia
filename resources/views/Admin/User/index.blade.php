@@ -14,6 +14,7 @@
 
                     <tr>
                         <th scope="col">Numara</th>
+                        <th scope="col">Rol</th>
                         <th scope="col">Kullanıcı Adı</th>
                         <th scope="col">E-mail</th>
                         <th scope="col">Durum</th>
@@ -28,7 +29,11 @@
                     <tr>
                         @foreach( $data as $rs )
                             <th scope="row">{{$rs->id}}</th>
-
+                            <th>
+                                @foreach($rs->roles as $role)
+                                    {{$role->name}}
+                                @endforeach
+                            </th>
                             <td>{{$rs->username}}</td>
                             <td>{{$rs->email}}</td>
 

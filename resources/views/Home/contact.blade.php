@@ -23,7 +23,7 @@
                             @csrf
                             <div class="row">
                                 <div class="col-md-12 form-group">
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="İsim(kullanıcı adı) 'ZORUNLU' ">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="İsim  'ZORUNLU' ">
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <input type="text" class="form-control" id="email" name="email" placeholder="Email">

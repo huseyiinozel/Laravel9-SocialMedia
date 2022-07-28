@@ -1,14 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Role;
-use App\Models\User;
-use App\Models\UserRole;
 use Illuminate\Http\Request;
 
-class AdminUserController extends Controller
+class Serden extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,11 +13,7 @@ class AdminUserController extends Controller
      */
     public function index()
     {
-        $data=User::all();
-        return view('Admin.user.index',[
-            'data'=>$data
-            ]
-        );
+        return view('home.serden') ;
     }
 
     /**
@@ -53,16 +45,7 @@ class AdminUserController extends Controller
      */
     public function show($id)
     {
-        $data=User::find($id);
-        $roles=Role::all();
-
-
-        return view('Admin.User.show',[
-            'data'=>$data,
-            'roles'=>$roles,
-
-
-        ]);
+        //
     }
 
     /**
@@ -83,18 +66,10 @@ class AdminUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id,$rid)
+    public function update(Request $request, $id)
     {
-        $data =User::find($id);
-        $data->status=$request->status;
-        $user=UserRole::where('role_id',$rid)->first();
-        $user->role_id=2;
-        $data->save();
-        return redirect(route('admin.user_show',['id'=>$id,'rid'=>$rid]));
+        //
     }
-
-
-
 
     /**
      * Remove the specified resource from storage.
@@ -104,9 +79,6 @@ class AdminUserController extends Controller
      */
     public function destroy($id)
     {
-        $data =User::find($id);
-
-        $data->delete();
-        return redirect('admin/user');
+        //
     }
 }

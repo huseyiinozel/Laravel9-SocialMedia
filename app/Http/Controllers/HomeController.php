@@ -58,7 +58,7 @@ class HomeController extends Controller
         $data=new Contact();
         $data->name=$request->name;
         if ($data->name==null)
-            return redirect()->route('contact')->with('error','error');
+            return redirect()->route('contact')->with('errorcontact','error');
         $data->email=$request->email;
         $data->phone=$request->phone;
         $data->subject=$request->subject;
@@ -67,7 +67,7 @@ class HomeController extends Controller
         $data->save();
 
 
-        return redirect()->route('contact')->with('success','error');
+        return redirect()->route('home_contact')->with('successcontact','error');
 
 
     }
@@ -88,7 +88,7 @@ class HomeController extends Controller
         $data->save();
 
 
-        return redirect()->route('post_index',['id'=>$data->post_id])->with('success','error');
+        return redirect()->route('post_index',['id'=>$data->post_id])->with('successcomment','error');
 
 
     }

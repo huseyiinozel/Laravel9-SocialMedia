@@ -1,10 +1,10 @@
-@if($message = Session::get('success'))
+@if($message = Session::get('successcontact'))
 <div class="alert">
     <span class="btn btn-success">Mesajınız Başarıyla İletildi</span>
 
 </div>
 @endif
-@if($message = Session::get('error'))
+@if($message = Session::get('errorcontact'))
     <div class="alert">
         <span class="btn btn-danger">Malesef mesajınız gönderilemedi.Lütfen gerekli bölümleri doldurduğunuzdan emin olun</span>
 

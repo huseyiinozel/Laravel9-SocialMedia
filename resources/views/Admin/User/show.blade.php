@@ -64,10 +64,41 @@
                         <th >Üyelik Tarihi</th>
                         <th>{{$data->created_at}}</th>
                     </tr>
-
-                    <form role="form" action="{{route('admin.user_update',['id'=>$data->id])}}" method="post" >
-                        @csrf
                     <tr>
+                        <th >Rolü</th>
+                        <th> @foreach($data->roles as $role)
+
+
+                                {{$role->name}}
+
+
+
+                        </th>
+                    </tr>
+
+
+                    <form role="form" action="{{route('admin.user_update',['id'=>$data->id,'rid'=>$role->id])}}" method="post" >
+                        @csrf
+
+                        <tr>
+
+                            <th >Rol Değiştir</th>
+
+
+                            <th>
+                                <select name="role" class="form-select form-select-sm mb-3" aria-label=".form-select-sm example">
+
+                                            <option value=1>Admin</option>
+                                            <option value=2>Moderatör</option>
+                                            <option value=3>Kullanıcı</option>
+
+                                    </select>
+
+                            </th>
+
+
+                        </tr>
+   <tr>
                         <th >Durum</th>
                         <th>
 
@@ -75,15 +106,8 @@
                             <option selected="">{{$data->status}}</option>
                             <option value="yeni">Yeni</option>
                             <option value="eski">Eski</option>
-
-
                         </select>
-
-
                         </th>
-
-
-
                     </tr>
 
 
@@ -100,6 +124,7 @@
                     </tr>
 
                     </form>
+                    @endforeach
 
 
                     <td><a href="{{route('admin.user_destroy',['id'=>$data->id])}}" class="btn btn-primary btn-danger"

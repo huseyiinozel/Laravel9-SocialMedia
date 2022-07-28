@@ -1,10 +1,10 @@
-@if($message = Session::get('success'))
+@if($message = Session::get('successcomment'))
     <div class="alert">
         <span class="btn btn-success">Yorumunuz Başarıyla iletildi.Admin onayından sonra yayınlanacaktır.</span>
 
     </div>
 @endif
-@if($message = Session::get('error'))
+@if($message = Session::get('errorcomment'))
     <div class="alert">
         <span class="btn btn-danger">Malesef yorumunuz gönderilemedi.Lütfen gerekli bölümleri doldurduğunuzdan emin olun</span>
 
