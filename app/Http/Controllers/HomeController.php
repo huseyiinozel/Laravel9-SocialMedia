@@ -8,6 +8,7 @@ use App\Models\Contact;
 use App\Models\Post;
 use App\Models\Setting;
 use App\Models\User;
+use App\Models\UserRole;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -126,6 +127,9 @@ class HomeController extends Controller
 
     }
     public function registerstore(Request $request){
+
+
+
         $data=new User();
 
         $data->username=$request->username;
@@ -151,8 +155,15 @@ class HomeController extends Controller
             return redirect('/registeruser')->with('errornull','errornull');
         }
 
-
         $data->save();
+
+        $rol = new UserRole();
+        $rol->role_id=3;
+        $rolid=User::where('username',$request->username)->first();
+        $rol->user_id=$rolid->id;
+
+        $rol->save();
+
         Auth::login($data);
 
 

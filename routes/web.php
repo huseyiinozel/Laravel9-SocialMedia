@@ -125,7 +125,8 @@ Route::prefix('/admin')->name('admin.')->controller(AdminHomeController::class)-
         Route::get('/',[AdminUserController::class,'index'])->name('user');
         Route::get('/show/{id}',[AdminUserController::class,'show'])->name('user_show');
         Route::get('/destroy/{id}',[AdminUserController::class,'destroy'])->name('user_destroy');
-        Route::post('/update/{id}/{rid}',[AdminUserController::class,'update'])->name('user_update');
+        Route::post('/update/{id}',[AdminUserController::class,'update'])->name('user_update');
+        Route::get('/destroyrole/{uid}/{rid}',[AdminUserController::class,'destroyrole'])->name('user_destroyrole');
 
     });
 

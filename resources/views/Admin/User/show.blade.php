@@ -64,72 +64,70 @@
                         <th >Üyelik Tarihi</th>
                         <th>{{$data->created_at}}</th>
                     </tr>
+
                     <tr>
                         <th >Rolü</th>
-                        <th> @foreach($data->roles as $role)
-
+                        <th>  @foreach($data->roles as $role)
 
                                 {{$role->name}}
-
-
+                                <a href="{{route('admin.user_destroyrole',['uid'=>$data->id,'rid'=>$role->id])}}" class="btn btn-primary btn-danger"
+                                   onclick="return confirm ('Deleting !! Are you sure ?')">[X]</a>
+                            @endforeach
 
                         </th>
                     </tr>
+                    </form>
 
 
-                    <form role="form" action="{{route('admin.user_update',['id'=>$data->id,'rid'=>$role->id])}}" method="post" >
+
+
+
+
+                    <form role="form" action="{{route('admin.user_update',['id'=>$data->id])}}" method="post" >
                         @csrf
+
+
+
 
                         <tr>
 
                             <th >Rol Değiştir</th>
 
-
                             <th>
-                                <select name="role" class="form-select form-select-sm mb-3" aria-label=".form-select-sm example">
-
-                                            <option value=1>Admin</option>
-                                            <option value=2>Moderatör</option>
-                                            <option value=3>Kullanıcı</option>
-
-                                    </select>
-
+                                <select name="role_id" class="form-select form-select-sm mb-3" aria-label=".form-select-sm example">
+                                    <option selected>Rol Seç</option>
+                                    <option value="2">Moderatör</option>
+                                    <option value="1">Admin</option>
+                                </select>
                             </th>
 
 
+
+
                         </tr>
-   <tr>
-                        <th >Durum</th>
-                        <th>
 
-                        <select name="status" class="form-select form-select-sm mb-3" aria-label=".form-select-sm example">
-                            <option selected="">{{$data->status}}</option>
-                            <option value="yeni">Yeni</option>
-                            <option value="eski">Eski</option>
-                        </select>
-                        </th>
-                    </tr>
-
-
-
-
-                    <tr>
-
-                        <th >Admin İşlemi :</th>
                         <th>
 
 
-                            <button type="submit" class="btn btn-primary"> Güncelle</button>
-                        </th>
-                    </tr>
+
+
+
+
+
+
+
+
+                    <td>
+                            <button type="submit" class="btn btn-primary"> Rel Ekle  </button>
+                            <a href="{{route('admin.user_destroy',['id'=>$data->id])}}" class="btn btn-primary btn-danger"
+                           onclick="return confirm ('Eminseniz Siliyorum')"  >Sil</a>
+
+                        <a href="{{route('admin.user_show',['id'=>$data->id])}}" class="btn btn-primary btn-success"
+                           onclick="return !window.close(this.href,'','top=50 left=100 width=1100,height=700')">Kapat</a>
+                    </td>
+                    </th>
 
                     </form>
-                    @endforeach
-
-
-                    <td><a href="{{route('admin.user_destroy',['id'=>$data->id])}}" class="btn btn-primary btn-danger"
-                           onclick="return confirm ('Eminseniz Siliyorum')"  >Sil</a> </td>
-
 
                     </thead>
                     <tbody>

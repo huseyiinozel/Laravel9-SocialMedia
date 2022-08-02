@@ -55,6 +55,7 @@ class AdminUserController extends Controller
     {
         $data=User::find($id);
         $roles=Role::all();
+        $data->status='eski';
 
 
         return view('Admin.User.show',[
@@ -83,15 +84,25 @@ class AdminUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id,$rid)
+    public function update(Request $request,$id)
     {
-        $data =User::find($id);
-        $data->status=$request->status;
-        $user=UserRole::where('role_id',$rid)->first();
-        $user->role_id=2;
+        $data=new UserRole();
+        $data->user_id=$id;
+        $data->role_id=$request->role_id;
         $data->save();
-        return redirect(route('admin.user_show',['id'=>$id,'rid'=>$rid]));
+        return redirect(route('admin.user_show',['id'=>$id]));
     }
+
+
+    public function destroyrole($uid,$rid)
+    {
+        $user =User::find($uid);
+        $user->roles()->detach($rid);
+        return redirect(route('admin.user_show',['id'=>$uid]));
+    }
+
+
+
 
 
 

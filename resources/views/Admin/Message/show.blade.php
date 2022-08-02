@@ -68,7 +68,6 @@
 
                         </select>
 
-
                         </th>
 
 
@@ -85,10 +84,10 @@
 
 
                                 <textarea cols="100" id="note" name="note">{{$data->note}}</textarea>
-                                <select name="status" class="form-select form-select-sm mb-3" aria-label=".form-select-sm example">
 
 
-                                </select>
+
+
 
 
 
@@ -101,8 +100,10 @@
 
                     <td><a href="{{route('admin.message_destroy',['id'=>$data->id])}}" class="btn btn-primary btn-danger"
                            onclick="return confirm ('Eminseniz Siliyorum')"  >Sil</a> </td>
-
-
+                    <td>
+                    <a href="{{route('admin.message_show',['id'=>$data->id])}}" class="btn btn-primary btn-success"
+                       onclick="return !window.close(this.href,'','top=50 left=100 width=1100,height=700')">Kapat</a>
+                    </td>
                     </thead>
                     <tbody>
 
