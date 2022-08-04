@@ -10,6 +10,12 @@
 
     </div>
 @endif
+@if($message = Session::get('error'))
+    <div class="alert">
+        <span class="btn btn-danger">Bu alana erismek icin gerekli izniniz yok.Lutfen giris yapiniz</span>
+
+    </div>
+@endif
 
 @if($errors->any())
 

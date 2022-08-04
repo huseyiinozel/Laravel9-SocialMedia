@@ -7,8 +7,7 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomePostController;
-use App\Http\Controllers\MainHomeController;
-use App\Http\Controllers\Serden;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -48,12 +47,11 @@ Route::get('/',[MainHomeController::class, 'index'])->name('index');
 Route::get('/aboutus',[MainHomeController::class, 'aboutus'])->name('aboutus');
 Route::get('/contact',[MainHomeController::class, 'contact'])->name('contact');
 Route::get('/whyhere',[MainHomeController::class, 'whyhere'])->name('whyhere');
-Route::get('/login',[MainHomeController::class, 'login'])->name('login');
+
 Route::get('/register',[MainHomeController::class, 'register'])->name('register');
 */
 // HOME
 Route::get('/',[HomeController::class, 'index'])->name('index');
-Route::get('/serden',[Serden::class, 'index'])->name('serden');
 Route::get('/post/{id}',[HomePostController::class, 'index'])->name('post_index');
 Route::get('/categorypost/{id}',[HomeController::class,'categorypost'])->name('categorypost');
 Route::get('/about',[HomeController::class, 'about'])->name('about');
@@ -65,7 +63,8 @@ Route::view('/registeruser','home.register')->name('registeruser');
 Route::post('/registerstore',[HomeController::class,'registerstore'])->name('registerstore');
 Route::post('/storecontact',[HomeController::class, 'storecontact'])->name('storecontact');
 Route::post('/storecomment',[HomeController::class, 'storecomment'])->name('storecomment');
-
+Route::view('/loginadmin','admin.login')->name('loginadmin');
+Route::post('/loginadmincheck',[HomeController::class,'loginadmincheck'])->name('loginadmincheck');
 
 //User
 
@@ -75,7 +74,7 @@ Route::post('/storecomment',[HomeController::class, 'storecomment'])->name('stor
 
 //Admin
 
-Route::prefix('/admin')->name('admin.')->controller(AdminHomeController::class)->group(function () {
+Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
 
     Route::get('/', [AdminHomeController::class, 'adminindex'])->name('adminindex');
 

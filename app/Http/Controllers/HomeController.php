@@ -157,12 +157,7 @@ class HomeController extends Controller
 
         $data->save();
 
-        $rol = new UserRole();
-        $rol->role_id=3;
-        $rolid=User::where('username',$request->username)->first();
-        $rol->user_id=$rolid->id;
 
-        $rol->save();
 
         Auth::login($data);
 
@@ -172,6 +167,39 @@ class HomeController extends Controller
 
 
     }
+
+    public function loginadmincheck(Request $request)
+    {
+
+        $ad = $request->username;
+        $sifre=$request->password;
+        $name =User::where('username',$ad)->first();
+        $pass =User::where('password',$sifre)->first();
+
+        if ($name == null or $pass == null){
+            return redirect('/loginadmin');
+        }
+        if ($ad == null or $sifre == null){
+            return redirect('/loginadmin');
+        }
+
+
+        if ($name->username == $ad and $pass->password == $sifre ) {
+            $rol = UserRole::where('user_id', $name->id)->first();
+            if ($rol->role_id == 1) {
+
+                Auth::login($name);
+                return redirect('/admin')->with('success', 'başarılı');
+            }
+            else
+                return redirect('/loginadmin');
+        }
+        else
+            return redirect('/loginadmin');
+
+
+    }
+
 
 
 

@@ -15,9 +15,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('serden')}}">Serden</a>
-                </li>
+
 
                 @foreach($mainCategories as $rs)
                 <li class="nav-item">
