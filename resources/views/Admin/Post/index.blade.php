@@ -14,6 +14,7 @@
 
                     <tr>
                         <th scope="col">Numara</th>
+                        <th scope="col">Kullanıcı</th>
                         <th scope="col">Kategori</th>
                         <th scope="col">İsim</th>
                         <th scope="col">Resim</th>
@@ -29,6 +30,8 @@
                     <tr>
                         @foreach( $data as $rs )
                         <th scope="row">{{$rs->id}}</th>
+                            <th scope="row">{{Auth::user()->username}}</th>
+
                             <td> {{ \App\Http\Controllers\Admin\CategoryController::getParentsTree($rs->category, $rs->category->title) }}</td>
                         <td>{{$rs->title}}</td>
                          <td>   @if($rs->image)

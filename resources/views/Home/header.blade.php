@@ -41,7 +41,7 @@
                         <div class="dropdown-content">
                             <a href="#"><i class="fa fa-user"></i> {{Auth::user()->username}}</a>
                             <br>
-                            <a href="/loginuser"><i class="fa fa-user"></i> Profilim</a>
+                            <a href="{{route('user_profile',['id'=>Auth::user()->id])}}"><i class="fa fa-user"></i> Profilim</a>
                             <br>
                             <a href="/loginuser"><i class="fa fa-user"></i> Gönderilerim</a>
                             <br>

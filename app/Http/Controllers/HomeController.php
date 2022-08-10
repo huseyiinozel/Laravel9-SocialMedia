@@ -26,10 +26,11 @@ class HomeController extends Controller
         $postlist1 = DB::table('posts')
             ->orderBy('id', 'desc')
             ->get();
-
+        $user =User::all();
         return view('Home.index',[
             'sliderdata'=>$sliderdata,
             'postlist1'=>$postlist1,
+            'user'=>$user
         ]);
 
     }

@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomePostController;
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -67,8 +68,11 @@ Route::view('/loginadmin','admin.login')->name('loginadmin');
 Route::post('/loginadmincheck',[HomeController::class,'loginadmincheck'])->name('loginadmincheck');
 
 //User
-
-
+Route::get('/profile/{id}',[UserController::class, 'show'])->name('user_profile');
+Route::post('/profile/store/{id}',[UserController::class,'store'])->name('user_post_store');
+Route::get('/profile/edit/{id}',[UserController::class,'edit'])->name('user_post_edit');
+Route::post('/profile/update/{id}',[UserController::class,'update'])->name('user_post_update');
+Route::get('profile/destroy/{id}', [UserController::class, 'destroy'])->name('user_post_destroy');
 
 
 

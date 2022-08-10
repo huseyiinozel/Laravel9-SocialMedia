@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
-use http\Client\Curl\User;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
-class PostController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,12 +19,7 @@ class PostController extends Controller
     public function index()
     {
 
-        $data=Post::all();
-        return view('admin.post.index',[
-            'data'=>$data,
-
-            ]
-        );
+        return view('user.profile');
     }
 
     /**
@@ -34,11 +29,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $data =Category::all();
-        return view('admin.post.create',[
-            'data'=>$data
 
-        ]);
     }
 
     /**
@@ -47,7 +38,7 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$id)
     {
         $data=new Post();
         $data->category_id=$request->category_id;
@@ -63,7 +54,7 @@ class PostController extends Controller
             $data->image= $request->file('image')->store('images');
         }
         $data->save();
-        return redirect('admin/post');
+        return redirect(route('user_profile',['id'=>$id]));
     }
 
     /**
@@ -72,13 +63,17 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post,$id)
+    public function show($id)
     {
-        $data =$post::find($id);
-        return view('admin.post.show',[
-            'data' =>$data
+        $data=User::find($id);
+        $category=Category::all();
+        $post=Post::where('user_id',$id)->get();
+        return view('user.profile',[
+        'data'=>$data,
+            'post'=>$post,
+            'category'=>$category
+            ]);
 
-        ]);
     }
 
     /**
@@ -87,11 +82,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post, $id)
+    public function edit($id)
     {
         $data =Post::find($id);
         $datalist =Category::all();
-        return view('admin.post.edit',[
+        return view('user.edit',[
             'data' =>$data,
             'datalist' => $datalist
 
@@ -108,7 +103,7 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         $data =Post::find($id);
-        $data->category_id= $request->category_id;
+        $data->category_id=$request->category_id;
         $data->title=$request->title;
         $data->user_id=$request->user_id;
         $data->detail=$request->detail;
@@ -121,7 +116,8 @@ class PostController extends Controller
             $data->image= $request->file('image')->store('images');
         }
         $data->save();
-        return redirect('admin/post');
+        return redirect(route('user_post_edit',['id'=>$id]));
+
     }
 
     /**
@@ -132,12 +128,12 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
+        $temp=Auth::user()->id;
         $data =Post::find($id);
         if ($data->image && Storage::disk('public')->exists($data->image)){
             Storage::delete($data->image);
         }
         $data->delete();
-        return redirect('admin/post');
+        return redirect(route('user_profile',['id'=>$temp]));
     }
-
 }
