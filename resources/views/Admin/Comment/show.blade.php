@@ -22,7 +22,7 @@
 
                     <tr>
                         <th >Kullanıcı Adı</th>
-                        <th>{{$data->user->name}}</th>
+                         <th>{{Auth::user()->username}}</th>
                     </tr>
 
 

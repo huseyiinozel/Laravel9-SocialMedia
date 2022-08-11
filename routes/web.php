@@ -73,6 +73,7 @@ Route::post('/profile/store/{id}',[UserController::class,'store'])->name('user_p
 Route::get('/profile/edit/{id}',[UserController::class,'edit'])->name('user_post_edit');
 Route::post('/profile/update/{id}',[UserController::class,'update'])->name('user_post_update');
 Route::get('profile/destroy/{id}', [UserController::class, 'destroy'])->name('user_post_destroy');
+Route::get('profile/commentdestroy/{id}', [UserController::class, 'commentdestroy'])->name('user_comment_destroy');
 
 
 

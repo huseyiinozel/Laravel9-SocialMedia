@@ -24,6 +24,11 @@
                                         data-bs-target="#pills-contact" type="button" role="tab"
                                         aria-controls="pills-contact" aria-selected="false">Mesajlarım</button>
                             </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                                        data-bs-target="#pills-comment" type="button" role="tab"
+                                        aria-controls="pills-comment" aria-selected="false">Yorumlarım</button>
+                            </li>
                         </ul>
                         <div class="tab-content" id="pills-tabContent">
 
@@ -317,6 +322,66 @@
                             <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
                                  Yapım Aşamasında
                             </div>
+                            <div class="tab-pane fade" id="pills-comment" role="tabpanel" aria-labelledby="pills-contact-tab">
+
+                                <div class="col-12">
+                                    <div class="bg-secondary rounded h-100 p-4">
+                                        <h6 class="mb-4">Yorumlarım </h6>
+
+
+                                        <div class="table-responsive">
+
+                                            <table class="table">
+
+                                                <thead>
+
+                                                <tr>
+                                                    <th scope="col">Numara</th>
+                                                    <th scope="col">Kullanıcı Adı</th>
+                                                    <th scope="col">Post</th>
+                                                    <th scope="col">Yorum</th>
+                                                    <th scope="col">Durum</th>
+                                                    <th scope="col">Göster</th>
+                                                    <th scope="col">Sil</th>
+                                                </tr>
+                                                </thead>
+
+                                                <tbody>
+
+                                                <tr>
+                                                    @foreach( $comment as $rs  )
+                                                        <th scope="row">{{$rs->id}}</th>
+                                                        <th>{{Auth::user()->username}}</th>
+                                                        <th scope="row">{{$rs->post_id}}</th>
+                                                        <th scope="row">{{$rs->review}}</th>
+                                                        <td>{{$rs->status}}</td>
+                                                        <td> <a href="{{route('post_index',['id'=>$rs->post_id])}}" class="btn btn-primary btn-success">Show</a> </td>
+                                                        <td><a href="{{route('user_comment_destroy',['id'=>$rs->id])}}" class="btn btn-primary btn-danger"
+                                                               onclick="return confirm ('Eminseniz Siliyorum')">Sil</a> </td>
+                                                </tr>
+                                                @endforeach
+                                                <tr>
+
+
+
+
+                                                </tr>
+
+                                                </tbody>
+
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+
+
+
                         </div>
                     </div>
                 </div>

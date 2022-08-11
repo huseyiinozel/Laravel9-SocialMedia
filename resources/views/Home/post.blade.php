@@ -40,7 +40,7 @@
                         <div class="comment-content">
 
                             <div class="comment-info">
-                                <cite>{{$rs->user->name}}</cite>
+                                <cite>{{Auth::user()->username}}</cite>
 
                                 <div class="comment-meta">
                                     <time class="comment-time" datetime="2014-07-12T23:05">{{$rs->created_at}}</time>
@@ -87,6 +87,9 @@
                                         </div>
                                         <div class="col-md-12 text-center">
                                             <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="submit">Yorumu Gönder</button>
+                                        </div>
+                                        <div >
+                                            <input name="user_id" type="hidden" value="{{Auth::user()->id}}">
                                         </div>
                                     </div>
                                 </form>

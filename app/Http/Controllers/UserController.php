@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -66,12 +67,15 @@ class UserController extends Controller
     public function show($id)
     {
         $data=User::find($id);
+        $temp=Auth::user()->id;
+        $comment=Comment::where('user_id',$temp)->get();
         $category=Category::all();
         $post=Post::where('user_id',$id)->get();
         return view('user.profile',[
         'data'=>$data,
             'post'=>$post,
-            'category'=>$category
+            'category'=>$category,
+            'comment'=>$comment
             ]);
 
     }
@@ -85,10 +89,12 @@ class UserController extends Controller
     public function edit($id)
     {
         $data =Post::find($id);
+
         $datalist =Category::all();
         return view('user.edit',[
             'data' =>$data,
-            'datalist' => $datalist
+            'datalist' => $datalist,
+
 
         ]);
     }
@@ -136,4 +142,15 @@ class UserController extends Controller
         $data->delete();
         return redirect(route('user_profile',['id'=>$temp]));
     }
+    public function commentdestroy($id)
+    {
+        $temp=Auth::user()->id;
+        $data =Comment::find($id);
+        if ($data->image && Storage::disk('public')->exists($data->image)){
+            Storage::delete($data->image);
+        }
+        $data->delete();
+        return redirect(route('user_profile',['id'=>$temp]));
+    }
+
 }

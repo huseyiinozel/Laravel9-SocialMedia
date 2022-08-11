@@ -83,7 +83,7 @@ class HomeController extends Controller
     public function storecomment(Request $request){
         $data=new Comment();
 
-        $data->user_id=1; //$request->user_id;
+        $data->user_id=$request->user_id;
         $data->post_id=$request->post_id;
         $data->review=$request->review;
         $data->ip=request()->ip();

@@ -28,7 +28,7 @@
                     <tr>
                         @foreach( $data as $rs  )
                             <th scope="row">{{$rs->id}}</th>
-                            <th>{{$rs->user->name}}</th>
+                            <th>{{Auth::user()->username}}</th>
                             <th scope="row">{{$rs->post_id}}</th>
                             <th scope="row">{{$rs->review}}</th>
                             <td>{{$rs->status}}</td>
